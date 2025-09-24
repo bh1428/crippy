@@ -1,6 +1,6 @@
 # Crippy
 
-Crippy is a tool to encrypt / decrypt blobs of data (either plain text or (binary) files) from and to BASE64 encoded blocks.
+Crippy is a (Windows) tool to encrypt / decrypt blobs of data (either plain text or (binary) files) from and to BASE64 encoded blocks.
 
 ## Requirements
 
