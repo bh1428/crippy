@@ -38,7 +38,7 @@ Please realize: a somewhat determined attacker can always extract the SALT from 
 
 ![Decrypt Example](example_decrypt.png)
 
-1. Enter the encrypted blob in the _Input_.into the input box.
+1. Enter the encrypted blob into the _Input_.
 2. Enter the password.
 3. Click the `[Decrypt]` button (or click `[Decrypt to File]` to decrypt a file).
 4. Decrypted text appears in the _Output_.
