@@ -21,7 +21,27 @@ import secrets
 secrets.token_hex(16)
 ```
 
-Please realize: a somewhat determined attacker can always extract the SALT from the executable.
+Please realize: a somewhat determined attacker can always extract the SALT from the executable. The SALT only protects you from a rainbow tables attack.
+
+## Usage
+
+### Encrypt
+
+![Encrypt Example](example_encrypt.png)
+
+1. Enter a password.
+2. Enter text you want to encrypt (or drag a file into the input box).
+3. Click the `[Encrypt]` button.
+4. Copy your text and transfer it (for example as email).
+
+### Decrypt
+
+![Decrypt Example](example_decrypt.png)
+
+1. Enter the encrypted blob in the _Input_.into the input box.
+2. Enter the password.
+3. Click the `[Decrypt]` button (or click `[Decrypt to File]` to decrypt a file).
+4. Decrypted text appears in the _Output_.
 
 ## Copyright and license
 

@@ -39,3 +39,4 @@ makefile            text
 # Never perform LF normalization
 #
 *.ico               binary
+*.png               binary
