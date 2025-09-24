@@ -1,0 +1,55 @@
+[project]
+name = "crippy"
+version = "2025.9.24"
+license = "GPL-3.0-only"
+authors = [
+  { name="Ben Hattem", email="benghattem@gmail.com" },
+]
+description = "Encrypt blobs into BASE64 text blocks."
+requires-python = ">=3.13"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "cryptography",
+    "platformdirs",
+    "pyside6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "click",
+    "pyinstaller",
+]
+
+[project.urls]
+repository = "https://github.com/bh1428/crippy.git"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+link-mode = "copy"
+
+[tool.uv.pip]
+generate-hashes = true
+require-hashes = true
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+
+[tool.pylint.messages_control]
+max-line-length = 120
+disable = [
+    "invalid-name",
+]
+extension-pkg-allow-list = [
+    "PySide6.QtCore",
+    "PySide6.QtWidgets",
+]

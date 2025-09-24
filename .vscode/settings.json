@@ -1,0 +1,23 @@
+    "editor.formatOnSave": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.addImport.exactMatchOnly": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": false,
+    "python.analysis.typeCheckingMode": "basic",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.git": true,
+        "**/.vscode": true,
+        "**/.ruff_cache": true
+    },
+    "pylint.importStrategy": "useBundled",
+    "ruff.importStrategy": "useBundled",
+    "ruff.nativeServer": "on",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    }
+}
