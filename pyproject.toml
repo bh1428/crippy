@@ -1,12 +1,12 @@
 [project]
 name = "crippy"
-version = "2025.9.24"
+version = "2025.10.11"
 license = "GPL-3.0-only"
 authors = [
   { name="Ben Hattem", email="benghattem@gmail.com" },
 ]
 description = "Encrypt blobs into BASE64 text blocks."
-requires-python = ">=3.13"
+requires-python = "==3.13.9"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3",

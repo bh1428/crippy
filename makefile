@@ -98,7 +98,7 @@ build: $(VENV_ACTIVATE) $(SCRIPT_NAME)_ui.py $(SCRIPT_NAME)_rc.py
 	foreach ($$item in $(PRE_BUILD_CLEAN)) { if (Test-Path -LiteralPath $$item) { Remove-Item -LiteralPath $$item -Force -Recurse }}
 	$(VENV_PYTHON) mk_file_version_info.py --out $(SCRIPT_NAME)_info.txt $(SCRIPT_NAME).py
 	$(PYINSTALLER) --version-file $(SCRIPT_NAME)_info.txt --contents-directory lib --icon=$(ICON_FILE) --noconsole $(SCRIPT_NAME).py
-	$(VENV_PYTHON) -c "import sys; import datetime; print(f'Python {sys.version}'); print(f'Build time: {datetime.datetime.now().astimezone()}\n')" $(OUT_NEW) $(BUILD_INFO)
-	$(UV) pip list $(OUT_APP) $(BUILD_INFO)
+	$(VENV_PYTHON) -c "import sys; import datetime; print(f'Python {sys.version}'); print(f'Build time: {datetime.datetime.now().astimezone()}\n')" $(OUT_NEW) $(BUILD_TARGET_DIR)\$(BUILD_INFO)
+	$(UV) pip list $(OUT_APP) $(BUILD_TARGET_DIR)\$(BUILD_INFO)
 	$(VENV_PYTHON) -c "import datetime as dt; dq=chr(34); ts=dt.datetime.now().strftime('%Y.%m.%d.%H%M%S'); print(f'#define MyAppVersion {dq}{ts}{dq}')" $(OUT_NEW) $(INNO_VERSION)
 	& $(MAKE_INNO) $(INNO_SETUP)

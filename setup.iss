@@ -6,7 +6,7 @@
 #define MyAppExe "crippy.exe"
 
 [Setup]
-AppId={{AC0BE151-BF0B-41E1-A2ED-D7E6B60CD84A}
+AppId={{4923A51D-DB87-48D4-B564-681EF5C7E08D}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher="{#MyCompany}"
@@ -35,14 +35,14 @@ Name: desktopicon\user; Description: "For the current user only"; GroupDescripti
 Name: quicklaunchicon; Description: "Create a &Quick Launch icon"; GroupDescription: "Additional icons:"; Flags: unchecked
 
 [Files]
-Source: "build_info.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "dist\build_info.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "dist\{#MyAppName}\{#MyAppExe}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "dist\{#MyAppName}\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\BenH Clip"; Filename: "{app}\{#MyAppExe}"
+Name: "{group}\Crippy"; Filename: "{app}\{#MyAppExe}"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
-Name: "{autodesktop}\BenH Clip"; Filename: "{app}\{#MyAppExe}"; Tasks: desktopicon
+Name: "{autodesktop}\Crippy"; Filename: "{app}\{#MyAppExe}"; Tasks: desktopicon
 
 [InstallDelete]
 Type: filesandordirs; Name: "{app}\lib"

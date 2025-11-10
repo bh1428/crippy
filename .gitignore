@@ -188,3 +188,5 @@ cython_debug/
 # Additional files
 #
 /crippy_info.txt
+version.iss
+
