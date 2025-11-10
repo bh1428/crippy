@@ -27,6 +27,7 @@
 *.toml              text
 *.txt               text
 *.ui                text
+*.yml               text
 LICENSE             text
 makefile            text
 

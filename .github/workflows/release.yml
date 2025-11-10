@@ -1,0 +1,52 @@
+name: Release new version
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: write
+
+env:
+  TAG: ${{ github.ref_name }}
+  SCRIPT_NAME: crippy
+  ICON_FILE: python.ico
+  BUILD_TARGET: dist
+  BUILD_INFO: build_info.txt
+  INNO_SETUP: "setup.iss"
+  INNO_VERSION: "version.iss"
+
+jobs:
+  build:
+    runs-on: windows-2025
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        enable-cache: false
+    - name: Install the project environment
+      run: |
+        uv venv  
+        uv pip sync dev-requirements.txt
+    - name: Build executable
+      run: |
+        .venv\Scripts\Activate.ps1
+        python -c "import datetime as dt; ts=dt.datetime.now().strftime('%Y.%m.%d.%H%M%S'); print(f'APP_VERSION={ts}')" >> "${env:GITHUB_ENV}"
+        python mk_file_version_info.py --out "${env:SCRIPT_NAME}_info.txt" "${env:SCRIPT_NAME}.py"
+        pyinstaller --version-file "${env:SCRIPT_NAME}_info.txt" --contents-directory lib --icon="${env:ICON_FILE}" --noconsole "${env:SCRIPT_NAME}.py"
+        python -c "import sys; import datetime; print(f'Python {sys.version}'); print(f'Build time: {datetime.datetime.now().astimezone()}\n')" > "${env:BUILD_TARGET}\${env:BUILD_INFO}"
+        uv pip list >> "${env:BUILD_TARGET}\${env:BUILD_INFO}"
+    - name: Build installer
+      run: |
+        .venv\Scripts\Activate.ps1
+        Write-Output "#define MyAppVersion `"$env:APP_VERSION`"" > "${env:INNO_VERSION}"
+        iscc "${env:INNO_SETUP}"
+    - name: Create release
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        gh release create ${env:TAG} --title "${env:TAG} - $env:APP_VERSION" --generate-notes "./dist/${env:SCRIPT_NAME} setup ${env:APP_VERSION}.exe"
+  

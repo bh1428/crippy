@@ -10,10 +10,10 @@ import crippy_app
 import crippy_ui
 from usersettings import UserSettings
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __copyright__ = "<br>".join(
     [
-        "Copyright (C) 2021-2025  Ben Hattem",
+        "Copyright (C) 2021-2025 Ben Hattem",
         "",
         "This program comes with ABSOLUTELY NO WARRANTY.",
         "This is free software, and you are welcome to redistribute it under certain conditions.",

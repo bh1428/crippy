@@ -8,7 +8,7 @@ The development environment requires a (global) install of:
 
 - [GNU `make`](https://www.gnu.org/software/make/) (for example from [Chocolatey](https://community.chocolatey.org/packages/make))
 - [`uv`](https://github.com/astral-sh/uv) from [Astral](https://astral.sh/)
-- [Inno Setup](https://jrsoftware.org/isinfo.php)
+- [Inno Setup](https://jrsoftware.org/isinfo.php) (only required if you want to build a release locally)
 
 ## Security
 
